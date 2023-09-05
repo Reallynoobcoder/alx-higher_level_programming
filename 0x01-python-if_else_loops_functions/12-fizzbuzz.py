@@ -2,7 +2,7 @@
 def fizzbuzz():
     for i in range(1, 101):
         if i < 101 and i > 1:
-            print(", ", end="")
+            print(" ", end="")
         if i % 3 == 0 and i % 5 == 0:
             print("FizzBuzz", end="")
         elif i % 3 == 0:
