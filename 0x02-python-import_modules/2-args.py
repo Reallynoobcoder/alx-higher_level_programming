@@ -2,12 +2,16 @@
 if __name__ == "__main__":
     import sys
 
-    leng = len(sys.argv)
-
-    if leng == 2:
-        print("{} argument{}.".format(leng - 1, '' if leng == 2 else 's'))
+    leng = len(sys.argv) -1
+    
+    if leng == 0:
+        print("{} arguments.".format(leng))
+        
+    elif leng == 1:
+        print("{} argument:".format(leng))
+   
     else:
         print("{} arguments:".format(leng - 1))
 
-    for i in range(1, leng):
+    for i in range(1, len(sys.argv)):
         print("{}: {}".format(i, sys.argv[i]))
