@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 import sys
 
-leng = len(sys.argv) -1
+leng = len(sys.argv)
 
-if leng == -1:
-    print("{} arguments.".format(leng))
-    
+if leng == 1:
+    print("{} argument{}.".format(leng - 1, '' if leng == 2 else 's'))
 else:
-    print("{} arguments:".format(leng))
+    print("{} arguments:".format(leng - 1))
 
-for i in range(1, len(sys.argv)):
+for i in range(1, leng):
     print("{}: {}".format(i, sys.argv[i]))
