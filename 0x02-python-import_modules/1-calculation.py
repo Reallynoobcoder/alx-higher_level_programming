@@ -1,4 +1,4 @@
-if __name__ = "__name__":
+if __name__ == "__name__":
     import calculator_1
 
 a = 10
