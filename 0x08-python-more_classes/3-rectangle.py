@@ -47,7 +47,12 @@ class Rectangle:
         return '\n'.join(result)
 
     def __str__(self):
-        if self.__width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ""
-        result = ["#" * self.__width] * self.__height
-        return '\n'.join(result)
+        lis = []
+        for i in range(self.__height):
+            for j in range(self.__width):
+                lis.append("#")
+            if i != self.__height - 1:
+                lis.append("\n")
+        return "".join(lis)
