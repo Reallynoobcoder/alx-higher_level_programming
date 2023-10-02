@@ -41,19 +41,6 @@ class Rectangle:
         return (self.__width + self.__height) * 2
 
     def __str__(self):
-        """
-           Returns a string representation of the rectangle.
-
-           This method first checks if the rectangle's perimeter is 0.
-           If it is, it returns an empty string.
-           If the perimeter is not 0, it builds a string representation
-           of the rectangle using the '#' character.
-           This string has the same number of '#' characters per line as the
-           Lines are separated by the newline character '\n'.
-
-           Returns:
-               A string representation of the rectangle.
-           """
 
         if self.__width == 0 or self.__height == 0:
             return("")
