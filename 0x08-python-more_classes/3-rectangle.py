@@ -41,6 +41,12 @@ class Rectangle:
         return (self.__width + self.__height) * 2
 
     def __str__(self):
+        if self.__width == 0 or self.height == 0:
+            return ""
+        result = ["#" * self.__width] * self.__height
+        return '\n'.join(result)
+
+    def __str__(self):
         if self.__width == 0 or self.__height == 0:
             return("")
         lis = []
