@@ -58,4 +58,4 @@ class Rectangle:
         return "".join(lis)
 
     def __repr__(self):
-        return "Rectangle ({}, {})".format(self.__width, self.__height)
+        return "Rectangle({}, {})".format(self.__width, self.__height)
