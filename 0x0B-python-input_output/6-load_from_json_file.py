@@ -6,4 +6,4 @@ import json
 def load_from_json_file(filename):
     """Add an object to json"""
     with open(filename, 'r') as file:
-        return json.dumps(file.read())
+        return json.loads(file.read())
