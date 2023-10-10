@@ -5,4 +5,4 @@
 def read_file(filename=""):
     """Reading file using 'with'"""
     with open(filename, 'r') as file:
-        print(file.read())
+        print(file.read(), end="")
