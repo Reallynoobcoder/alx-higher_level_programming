@@ -1,56 +1,44 @@
-from rectangle import Rectangle
+#!/usr/bin/python3
+""" Square class, inherits from rectangle. """
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-
+    """ Defines a Square """
     def __init__(self, size, x=0, y=0, id=None):
-
+        """Constructor for the Square class."""
         super().__init__(size, size, x, y, id)
+
+    def __str__(self):
+        """Returns a string representation of the square."""
+        return "[{}] ({}) {}/{} - {}".format(
+            self.__class__.__name__, self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
+        """Getter for the size attribute, which is synonymous with width."""
         return self.width
 
     @size.setter
     def size(self, value):
-        if type(value) != int:
-            raise TypeError("width must be an integer")
-
-        if value <= 0:
-            raise ValueError("width must be > 0")
-
+        """Setter for the size attribute, updating both width and height."""
         self.width = value
         self.height = value
 
-    def __str__(self):
-
-        return "[{}] ({}) {}/{} - {}".format(self.__class__.__name__, self.id, self.x, self.y, self.width)
-    
     def update(self, *args, **kwargs):
+        """ Update with args and kwargs """
+        attrs = ["id", "size", "x", "y"]
 
-        num_args = len(args)
+        if args is not None and len(args) != 0:
+            for i in range(min(len(args), len(attrs))):
+                setattr(self, attrs[i], args[i])
 
-        if num_args >= 1:
-            self.id = args[0]
-
-        if num_args >= 2:
-            self.size = args[1]
-
-        if num_args >= 3:
-            self.x = args[2]
-
-        if num_args >= 4:
-            self.y = args[3]
-    
-        else:
+        elif kwargs is not None:
             for key, value in kwargs.items():
                 setattr(self, key, value)
-                
-    def to_dictionary(self):
 
-        return {
-            'id': self.id,
-            'size': self.size,
-            'x': self.x,
-            'y': self.y
-        }
+    def to_dictionary(self):
+        """ Returns the dictionary representation """
+        attrs = ["id", "size", "x", "y"]
+        values = [self.id, self.width, self.x, self.y]
+        return dict(zip(attrs, values))
