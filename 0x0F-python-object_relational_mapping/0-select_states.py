@@ -9,7 +9,8 @@ if __name__ == "__main__":
         host="localhost",
         user=argv[1],
         password=argv[2],
-        database=argv[3]
+        database=argv[3],
+        port=3306
     )
 
     cursor = stats.cursor()
