@@ -15,8 +15,9 @@ if __name__ == "__main__":
 
     cursor = stats.cursor()
 
-    query = "SELECT * FROM states WHERE NAME LIKE BINARY %s ORDER BY id ASC;"
-    cursor.execute(query, (argv[4] + '%',))
+    query = "SELECT * FROM states WHERE NAME LIKE BINARY '{}' \
+    ORDER BY id ASC;".format(argv[4])
+    cursor.execute(query)
 
     for data in cursor.fetchall():
         print(data)
