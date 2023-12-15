@@ -20,7 +20,9 @@ if __name__ == "__main__":
     query = "SELECT * FROM states WHERE NAME LIKE BINARY %s ORDER BY id ASC;"
     cursor.execute(query, (argv[4] + '%',))
 
-    for data in cursor.fetchall():
+    rows = cursor.fetchall()
+
+    for data in rows:
         print(data)
 
     cursor.close()
