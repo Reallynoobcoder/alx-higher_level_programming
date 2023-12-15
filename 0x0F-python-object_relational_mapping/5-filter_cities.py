@@ -16,18 +16,24 @@ if __name__ == "__main__":
     cursor = stats.cursor()
     state_agr = argv[4]
 
-    query = "SELECT cities.id, cities.name, states.name AS state_name\
-    FROM cities\
-    JOIN states ON cities.state_id = states.id\
-    WHERE states.name = %s\
-    ORDER BY cities.id;"
+    query = "SELECT cities.name \
+             FROM cities \
+             JOIN states ON cities.state_id = states.id \
+             WHERE states.name = %s \
+             ORDER BY cities.id;"
 
     cursor.execute(query, (state_agr,))
 
     rows = cursor.fetchall()
 
-    for data in rows:
-        print(data)
+    if rows:
+        flag = 0
+        for row in rows:
+            if flag == 1:
+                print(", ", end="")
+            print(row[0], end="")
+            flag = 1
+    print()
 
     cursor.close()
     stats.close()
