@@ -19,7 +19,9 @@ if __name__ == "__main__":
     ORDER BY id ASC;".format(argv[4])
     cursor.execute(query)
 
-    for data in cursor.fetchall():
+    rows = cursor.fetchall()
+
+    for data in rows:
         print(data)
 
     cursor.close()
