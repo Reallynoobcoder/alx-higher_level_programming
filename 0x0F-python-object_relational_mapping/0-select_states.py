@@ -17,8 +17,10 @@ if __name__ == "__main__":
 
     cursor.execute("SELECT id, name FROM states ORDER BY id ASC;")
 
-    for data in cursor:
-        print(data)
+    rows = cursor.fetchall()
+
+    for state in rows:
+        print(state)
 
     cursor.close()
     stats.close()
