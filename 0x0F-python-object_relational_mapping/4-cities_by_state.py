@@ -21,7 +21,9 @@ if __name__ == "__main__":
     ORDER BY cities.id;"
     cursor.execute(query)
 
-    for data in cursor.fetchall():
+    rows = cursor.fetchall()
+
+    for data in rows:
         print(data)
 
     cursor.close()
