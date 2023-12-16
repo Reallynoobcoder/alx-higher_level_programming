@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """that prints all City objects from the database"""
-
 from sys import argv
 from model_state import Base, State
 from model_city import City
@@ -18,5 +17,5 @@ if __name__ == "__main__":
     all_cities = session.query(State, City)\
         .join(State, State.id == City.state_id).all()
 
-    for city, state in all_cities:
-        print("{}: ({}) {}".format(state.name, city.id, city.name))
+    for state, city in all_cities:
+        print(f"{state.name}: ({city.id}) {city.name}")
