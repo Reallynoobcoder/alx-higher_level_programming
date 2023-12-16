@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+
 """list all State objects that contain the letter a"""
+
 from sys import argv
 from model_state import Base, State
 from sqlalchemy import create_engine
@@ -15,4 +17,5 @@ if __name__ == "__main__":
     states_with_a = session.query(State).filter
     (State.name.like('%a%')).order_by(State.id.asc()).all()
 
-    print("{}: {}".format(states_with_a.id, states_with_a.name))
+    for state in states_with_a:
+        print("{}: {}".format(state.id, state.name))
