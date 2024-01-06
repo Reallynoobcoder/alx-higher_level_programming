@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Python script that takes in a URL"""
 import urllib.request
 import sys
 
